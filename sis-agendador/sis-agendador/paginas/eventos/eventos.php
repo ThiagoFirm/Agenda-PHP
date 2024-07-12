@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Página de Eventos</h3>
+    <h3><i class="bi bi-calendar-check-fill"></i> Página de Eventos</h3>
 </body>
 </html>
