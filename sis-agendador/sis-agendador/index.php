@@ -71,12 +71,52 @@ include("db/conexao.php");
                     include("paginas/contatos/excluir-contato.php");
                     break;
 
+                case 'eventos':
+                    include("paginas/eventos/eventos.php");
+                    break;
+    
+                case 'cad-evento':
+                    include("paginas/eventos/cad-evento.php");
+                    break;
+    
+                case 'inserir-evento':
+                    include("paginas/eventos/inserir-evento.php");
+                    break;
+
+                case 'editar-evento':
+                    include("paginas/eventos/editar-evento.php");
+                    break;
+
+                case 'atualizar-evento':
+                    include("paginas/eventos/atualizar-evento.php");
+                    break;
+
+                case 'excluir-evento':
+                    include("paginas/eventos/excluir-evento.php");
+                    break;
+    
                 case 'tarefas':
                     include("paginas/tarefas/tarefas.php");
                     break;
 
-                case 'eventos':
-                    include("paginas/eventos/eventos.php");
+                case 'cad-tarefa':
+                    include("paginas/tarefas/cad-tarefa.php");
+                    break;
+
+                case 'inserir-tarefa':
+                    include("paginas/tarefas/inserir-tarefa.php");
+                    break;
+
+                case 'editar-tarefa':
+                    include("paginas/tarefas/editar-tarefa.php");
+                    break;
+
+                case 'atualizar-tarefa':
+                    include("paginas/tarefas/atualizar-tarefa.php");
+                    break;
+
+                case 'excluir-tarefa':
+                    include("paginas/tarefas/excluir-tarefa.php");
                     break;
 
                 default:

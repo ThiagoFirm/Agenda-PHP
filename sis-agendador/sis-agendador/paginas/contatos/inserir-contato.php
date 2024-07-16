@@ -14,12 +14,12 @@
     <?php
 
 
-    $nomeContato = mysqli_real_escape_string($conexao, $_POST["nomeContato"]);
-    $emailContato = mysqli_real_escape_string($conexao, $_POST["emailContato"]);
-    $telefoneContato = mysqli_real_escape_string($conexao, $_POST["telefoneContato"]);
-    $enderecoContato = mysqli_real_escape_string($conexao, $_POST["enderecoContato"]);
-    $sexoContato = mysqli_real_escape_string($conexao, $_POST["sexoContato"]);
-    $dataNascContato = mysqli_real_escape_string($conexao, $_POST["dataNascContato"]);
+    $nomeContato = strip_tags(mysqli_real_escape_string($conexao, $_POST["nomeContato"]));
+    $emailContato = strip_tags(mysqli_real_escape_string($conexao, $_POST["emailContato"]));
+    $telefoneContato = strip_tags(mysqli_real_escape_string($conexao, $_POST["telefoneContato"]));
+    $enderecoContato = strip_tags(mysqli_real_escape_string($conexao, $_POST["enderecoContato"]));
+    $sexoContato = strip_tags(mysqli_real_escape_string($conexao, $_POST["sexoContato"]));
+    $dataNascContato = strip_tags(mysqli_real_escape_string($conexao, $_POST["dataNascContato"]));
 
     $sql = "INSERT INTO tbcontatos(nomeContato, emailContato, telefoneContato, enderecoContato, sexoContato, dataNascContato)
         VALUE('{$nomeContato}', '{$emailContato}', '{$telefoneContato}', '{$enderecoContato}', '{$sexoContato}', '{$dataNascContato}')";

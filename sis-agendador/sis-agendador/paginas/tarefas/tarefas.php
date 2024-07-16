@@ -27,7 +27,7 @@
     </header>
 
     <div>
-        <a class="btn btn-secondary mb-2" href="index.php?menuop=cad-tarefa"> Nova Tarefa</a>
+        <a class="btn btn-secondary mb-2" href="index.php?menuop=cad-tarefa"><i>+</i> Nova Tarefa</a>
     </div>
 
     <div >

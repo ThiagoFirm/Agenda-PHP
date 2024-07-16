@@ -8,23 +8,23 @@
 <body>
     <header>
         <h3>
-            Excluir Tarefa
+            Excluir Evento
         </h3>
     </header>
 
     <?php
-    $idTarefa = $_GET["idTarefa"];
+    $idEvento = $_GET["idEvento"];
 
-    $sql = "DELETE FROM tbtarefas WHERE idTarefa = '{$idTarefa}'";
+    $sql = "DELETE FROM tbeventos WHERE idEvento = '{$idEvento}'";
     $rs = mysqli_query($conexao, $sql);
     
     if($rs) { ?>
         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Excluir Tarefa</h4>
-            <p>Tarefa excluída com sucesso</p>
+            <h4 class="alert-heading">Excluir Evento</h4>
+            <p>Evento excluída com sucesso</p>
             <hr>
             </p class="mb-0">
-            <a href="?menuop=tarefas">Voltar para a lista de tarefas</a>
+            <a href="?menuop=eventos">Voltar para a lista de Eventos</a>
             </p>
         </div>
     <?php
@@ -32,10 +32,10 @@
         ?>
          <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">Erro.</h4>
-            <p>Erro ao excluir tarefa.</p>
+            <p>Erro ao excluir Evento.</p>
             <hr>
             </p class="mb-0">
-            <a href="index.php?menuop=tarefas">Voltar para a lista de tarefas</a>
+            <a href="index.php?menuop=eventos">Voltar para a lista de Eventos</a>
             </p>
         </div>
     <?php

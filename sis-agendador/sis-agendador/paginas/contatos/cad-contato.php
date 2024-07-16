@@ -12,7 +12,7 @@
         <h3>Cadastro de Contato</h3>
         </heade>
         <div class="col-6">
-            <form class=".needs-validation" action="index.php?menuop=inserir-contato" method="POST">
+            <form class=".needs-validation" action="index.php?menuop=inserir-contato" method="POST" >
 
                 <div class="mb-3">
                     <label class="form-label" for="nomeContato">Nome</label>
