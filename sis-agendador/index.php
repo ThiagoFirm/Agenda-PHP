@@ -1,5 +1,26 @@
 <?php
 include("db/conexao.php");
+session_start();
+if (isset($_SESSION['loginUser']) and isset($_SESSION['senhaUser'])) {
+    $loginUser = $_SESSION['loginUser'];
+    $senhaUser = $_SESSION['senhaUser'];
+    $nomeUser = $_SESSION['nomeUser'];
+
+    $sql = "SELECT * FROM tbusuarios WHERE loginUser = '{$loginUser} and senhaUser = '{$senhaUser}'";
+    $rs = mysqli_query($conexao, $sql);
+    $dados = mysqli_fetch_assoc($rs);
+    $linha = mysqli_num_rows($rs);
+
+    if ($linha == 0) {
+        session_unset();
+        session_destroy();
+        header('Location: login.php');
+        exit();
+    }
+} else {
+    header('Location: login.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +31,8 @@ include("db/conexao.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/estilo-padrao.css">
+    <link rel="stylesheet" href="css/estilo-padrao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <title>Sistema Agendador</title>
 </head>
@@ -18,76 +40,133 @@ include("db/conexao.php");
 <body>
     <header class="bg-dark">
         <div class="container">
-            <h1>Sistema Agendador</h1>
+
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a href="index.php?menuop=home">Home</a>
-                <a href="index.php?menuop=contatos">Contatos</a>
-                <a href="index.php?menuop=eventos">Eventos</a>
-                <a href="index.php?menuop=tarefas">Tarefas</a>
+
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <h1>Agenda</h1>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item "><a class="nav-link active" href="index.php?menuop=home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?menuop=contatos">Contatos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?menuop=eventos">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?menuop=tarefas">Tarefas</a></li>
+                    </ul>
+                    <div class="navbar-nav w-100 justify-content-end">
+                        <a href="logout.php" class="nav-link">
+                            <i class="bi bi-person"></i>
+                            <?=$nomeUser?> Sair
+                            <i class="bi bi-box-arrow-right"></i>
+                        </a>
+
+                    </div>
+                </div>
+
             </nav>
+
         </div>
     </header>
+
     <main>
-        <?php
+        <div class="container">
+            <?php
 
-        $menuop = (isset($_GET['menuop'])) ? $_GET["menuop"] : "home";
-        switch ($menuop) {
-            case 'home':
-                include("paginas/home/home.php");
-                break;
+            $menuop = (isset($_GET['menuop'])) ? $_GET["menuop"] : "home";
+            switch ($menuop) {
+                case 'home':
+                    include("paginas/home/home.php");
+                    break;
 
-            case 'contatos':
-                include("paginas/contatos/contatos.php");
-                break;
+                case 'contatos':
+                    include("paginas/contatos/contatos.php");
+                    break;
 
-            case 'cad-contato':
-                include("paginas/contatos/cad-contato.php");
-                break;
+                case 'cad-contato':
+                    include("paginas/contatos/cad-contato.php");
+                    break;
 
-            case 'inserir-contato':
-                include("paginas/contatos/inserir-contato.php");
-                break;
+                case 'inserir-contato':
+                    include("paginas/contatos/inserir-contato.php");
+                    break;
 
-            case 'editar-contato':
-                include("paginas/contatos/editar-contato.php");
-                break;
+                case 'editar-contato':
+                    include("paginas/contatos/editar-contato.php");
+                    break;
 
-            case 'atualizar-contato':
-                include("paginas/contatos/atualizar-contato.php");
-                break;
+                case 'atualizar-contato':
+                    include("paginas/contatos/atualizar-contato.php");
+                    break;
 
-            case 'excluir-contato':
-                include("paginas/contatos/excluir-contato.php");
-                break;
+                case 'excluir-contato':
+                    include("paginas/contatos/excluir-contato.php");
+                    break;
 
-            case 'tarefas':
-                include("paginas/tarefas/tarefas.php");
-                break;
+                case 'eventos':
+                    include("paginas/eventos/eventos.php");
+                    break;
 
-            case 'eventos':
-                include("paginas/eventos/eventos.php");
-                break;
+                case 'cad-evento':
+                    include("paginas/eventos/cad-evento.php");
+                    break;
 
-            default:
-                include("paginas/home/home.php");
-                break;
-        }
-        ?>
+                case 'inserir-evento':
+                    include("paginas/eventos/inserir-evento.php");
+                    break;
+
+                case 'editar-evento':
+                    include("paginas/eventos/editar-evento.php");
+                    break;
+
+                case 'atualizar-evento':
+                    include("paginas/eventos/atualizar-evento.php");
+                    break;
+
+                case 'excluir-evento':
+                    include("paginas/eventos/excluir-evento.php");
+                    break;
+
+                case 'tarefas':
+                    include("paginas/tarefas/tarefas.php");
+                    break;
+
+                case 'cad-tarefa':
+                    include("paginas/tarefas/cad-tarefa.php");
+                    break;
+
+                case 'inserir-tarefa':
+                    include("paginas/tarefas/inserir-tarefa.php");
+                    break;
+
+                case 'editar-tarefa':
+                    include("paginas/tarefas/editar-tarefa.php");
+                    break;
+
+                case 'atualizar-tarefa':
+                    include("paginas/tarefas/atualizar-tarefa.php");
+                    break;
+
+                case 'excluir-tarefa':
+                    include("paginas/tarefas/excluir-tarefa.php");
+                    break;
+
+                default:
+                    include("paginas/home/home.php");
+                    break;
+            }
+            ?>
+        </div>
     </main>
+
+    <!--<footer class="container-fluid  bg-dark">
+        <div class="text-center">Agenda</div>
+    </footer>-->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/javascript-agendador.js"></script>
 </body>
 
 
-<style>
 
-body{
-    background-color: #3b4147;
-    color: white;
-}
-
-</style>
 </html>

@@ -10,46 +10,78 @@
 <body>
     <header>
         <h3>Cadastro de Contato</h3>
-    </header>
-    <div>
-        <form action="index.php?menuop=inserir-contato" method="POST">
+        </heade>
+        <div class="col-6">
+            <form class="needs-validation" action="index.php?menuop=inserir-contato" method="POST" novalidate>
 
-            <div>
-                <label for="nomeContato">Nome</label>
-                <input type="text" name="nomeContato">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label" for="nomeContato">Nome</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person-square"></i></span>
+                        <input class="form-control" type="text" name="nomeContato" required>
+                        <div class="valid-feedback">
+                        Correto.
+                        </div>
+                        <div class="invalid-feedback">
+                        Campo obrigatório de no máximo 225 caracteres 
+                        </div>
+                    </div>
+                </div>
 
-            <div>
-                <label for="emailContato">E-mail</label>
-                <input type="email" name="emailContato">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label" for="emailContato">E-mail</label>
+                    <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input class="form-control" type="email" name="emailContato">
+                    </div>
+                </div>
 
-            <div>
-                <label for="telefoneContato">Telefone</label>
-                <input type="text" name="telefoneContato">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label" for="telefoneContato">Telefone</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                        <input class="form-control" type="text" name="telefoneContato">
+                    </div>
+                </div>
 
-            <div>
-                <label for="enderecoContato">Endereço</label>
-                <input type="text" name="enderecoContato">
-            </div>
+                <div class="mb-3">
+                    <label class="form-label" for="enderecoContato">Endereço</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-mailbox-flag"></i></span>
+                        <input class="form-control" type="text" name="enderecoContato">
+                    </div>
+                </div>
 
-            <div>
-                <label for="sexoContato">Sexo</label>
-                <input type="text" name="sexoContato">
-            </div>
+                <div class="row">
 
-            <div>
-                <label for="dataNascContato">Data de Nascimento</label>
-                <input type="date" name="dataNascContato">
-            </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="sexoContato">Sexo</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
+                            <select class="form-select" name="sexoContato" id="sexoContato">
+                                <option selected>Selecione o sexo do contato</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                            </select>
+                        </div>
+                    </div>
 
-            <div>
-                <input type="submit" value="Adicionar" name="btnAdicionar">
-            </div>
+                    <div class="mb-3 col-3">
+                        <label class="form-label" for="dataNascContato">Data de Nascimento</label>
+                        <div class="input-group">
+                            <input class="form-control" type="date" name="dataNascContato">
+                        </div>
+                    </div>
 
-        </form>
-    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <input class="btn btn-primary" type="submit" value="Adicionar" name="btnAdicionar">
+                </div>
+
+            </form>
+        </div>
 </body>
 
 </html>
