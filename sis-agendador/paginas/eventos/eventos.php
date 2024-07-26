@@ -113,7 +113,7 @@
                             <a class="btn btn-outline-success btn-sm" href="index.php?menuop=editar-evento&idEvento=<?= $dados["idEvento"] ?>"><i class="bi bi-pencil-fill"></i></a>
                         </td>
                         <td class="text-center">
-                            <a class="btn btn-outline-danger btn-sm" href="index.php?menuop=excluir-evento&idEvento=<?= $dados["idEvento"] ?>"><i class="bi bi-trash3-fill"></i></a>
+                            <a class="btn btn-outline-danger btn-sm" href="index.php?menuop=excluir-evento&idEvento=<?= $dados["idEvento"] ?>"><i class="bi bi-trash-fill"></i></a>
                         </td>
                     </tr>
 

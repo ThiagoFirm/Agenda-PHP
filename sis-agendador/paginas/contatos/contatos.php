@@ -109,7 +109,7 @@
                         <td><?= $dados["sexoContato"] ?></td>
                         <td><?= $dados["dataNascContato"] ?></td> <!-- "< ? = ? >" é outra forma de codar em php  -->
                         <td class="text-center"><a class="btn btn-outline-success btn-sm" href="index.php?menuop=editar-contato&idContato=<?= $dados["idContato"] ?>"><i class="bi bi-pencil-fill"></i></a></td>
-                        <td class="text-center"><a class="btn btn-outline-danger btn-sm" href="index.php?menuop=excluir-contato&idContato=<?= $dados["idContato"] ?>"><i class="bi bi-trash3-fill"></i></a></td>
+                        <td class="text-center"><a class="btn btn-outline-danger btn-sm" href="index.php?menuop=excluir-contato&idContato=<?= $dados["idContato"] ?>"><i class="bi bi-trash-fill"></i></a></td>
                     </tr>
 
                 <?php

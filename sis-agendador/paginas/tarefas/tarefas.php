@@ -103,7 +103,7 @@
                         <td class="text-nowrap"><?= $dados["dataConclusaoTarefa"] ?></td>
                         <td class="text-nowrap"><?= $dados["horaConclusaoTarefa"] ?></td>
                         <td class="text-center"><a class="btn btn-outline-success btn-sm" href="index.php?menuop=editar-tarefa&idTarefa=<?= $dados["idTarefa"] ?>"><i class="bi bi-pencil-fill"></i></a></td>
-                        <td class="text-center"><a class="btn btn-outline-danger btn-sm" href="index.php?menuop=excluir-tarefa&idTarefa=<?= $dados["idTarefa"] ?>"><i class="bi bi-trash3-fill"></i></a></td>
+                        <td class="text-center"><a class="btn btn-outline-danger btn-sm" href="index.php?menuop=excluir-tarefa&idTarefa=<?= $dados["idTarefa"] ?>"><i class="bi bi-trash-fill"></i></a></td>
                     </tr>
 
                 <?php
